@@ -17,14 +17,19 @@ FALCON_TOOLS_PASSWORD=
 ```
 
 ### List Projects
+```ruby
 FalconToolsInterface.find(:projects)
+```
 
 ### Find Project Id By Name
+```ruby
 FalconToolsInterface.find_project_by_name("Example Project")
+```
 
 ### List Project Members, Facilities, Assets
+```ruby
 FalconToolsInterface.find(type, project_id)
-
+```
 Example: `FalconToolsInterface.find(:project_members, "de9f183e-f12a-4bcb-a52e-0026f9280a30")`
 
 ## Contributing
