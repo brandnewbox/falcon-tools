@@ -15,7 +15,6 @@ module FalconTools
 
     def find_project_by_name(name)
       projects = find(:projects)
-      puts projects.inspect
       project = projects.select{ |p| p["model"]["name"] == name }.first
       project["key"] unless project.blank?
     end
