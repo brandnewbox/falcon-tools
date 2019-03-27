@@ -10,6 +10,32 @@ RSpec.describe "Interface" do
     expect{FalconTools::Interface.new}.not_to raise_error
   end
 
+  describe "#find" do
+    it "fails silently if no username/password is provided" do
+      fti = FalconTools::Interface.new
+      expect{fti.find(:projects)}.not_to raise_error
+    end
+
+    it "returns an empty hash if the token is nil" do
+      fti = FalconTools::Interface.new
+      expect(fti.find(:projects)).to eq({})
+    end
+
+  end
+
+  describe "#find_project_by_name" do
+    it "fails silently if no username/password is provided" do
+      fti = FalconTools::Interface.new
+      expect{fti.find_project_by_name("name")}.not_to raise_error
+    end
+
+    it "returns nil if the token is nil" do
+      fti = FalconTools::Interface.new
+      expect(fti.find_project_by_name("name")).to eq(nil)
+    end
+
+  end
+
   describe "with bad username/password" do
     it "fails silently if @token is nil" do
       ENV['FALCON_TOOLS_USERNAME'] = "username"

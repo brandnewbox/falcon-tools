@@ -11,9 +11,13 @@ module FalconTools
     end
 
     def find(type, project_id=nil)
-      url = "Energy/#{type.to_s.camelize}"
-      url += "/#{project_id}" if project_id
-      response = authorized_request(:get, url)
+      if @token
+        url = "Energy/#{type.to_s.camelize}"
+        url += "/#{project_id}" if project_id
+        response = authorized_request(:get, url)
+      else
+        {}
+      end
     end
 
     def find_project_by_name(name)
