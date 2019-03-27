@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     falcon-tools (0.1.0)
-      activesupport (~> 5.2)
+      activesupport (>= 5.2)
 
 GEM
   remote: https://rubygems.org/
