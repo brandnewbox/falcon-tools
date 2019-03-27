@@ -1,3 +1,6 @@
+require "active_support/all"
+require "net/http"
+
 module FalconTools
   class Interface
 
@@ -31,18 +34,18 @@ module FalconTools
         username: ENV['FALCON_TOOLS_USERNAME'], 
         password: ENV['FALCON_TOOLS_PASSWORD']
       })
-      set_token_expiration
+      set_token_expiration if @token
     end
 
     def reauthenticate
       @token = send_request(:post, "accounts/renewAuthentication", {
         token: @token
       })
-      set_token_expiration
+      set_token_expiration if @token
     end
 
     def token_expired?
-      @token_expiration < DateTime.now
+      @token_expiration ? @token_expiration < DateTime.now : false
     end
 
     def set_token_expiration
