@@ -45,7 +45,7 @@ module FalconTools
     end
 
     def token_expired?
-      @token_expiration ? @token_expiration < DateTime.now : false
+      @token_expiration ? @token_expiration < DateTime.now : true
     end
 
     def set_token_expiration

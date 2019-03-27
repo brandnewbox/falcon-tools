@@ -22,7 +22,7 @@ RSpec.describe "Interface" do
     it "is false if the @token_expiration is nil" do
       fti = FalconTools::Interface.new
       fti.instance_variable_set(:@token_expiration, nil)
-      expect(fti.send(:token_expired?)).to be false
+      expect(fti.send(:token_expired?)).to be true
     end
 
     it "is true if the @token_expiration is < DateTime.now" do

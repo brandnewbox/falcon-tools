@@ -16,6 +16,11 @@ FALCON_TOOLS_USERNAME=
 FALCON_TOOLS_PASSWORD=
 ```
 
+Create an initializer
+```ruby
+FalconToolsInterface = FalconTools::Interface.new
+```
+
 ### List Projects
 ```ruby
 FalconToolsInterface.find(:projects)
